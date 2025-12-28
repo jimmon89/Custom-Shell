@@ -1,0 +1,45 @@
+#!/usr/bin/env bash
+
+[[ -f "$(which tty)" ]] && GPG_TTY=$(tty)
+[[ -d "$HOME/.local/bin" ]] && export PATH="$HOME/.local/bin:$PATH"
+[[ -d "$HOME/bin" ]] && export PATH="$HOME/bin:$PATH"
+[[ -d "$HOME/.cargo/bin" ]] && export PATH="$HOME/.cargo/bin:$PATH"
+[[ -d "$HOME/.local/share" ]] && export XDG_DATA_HOME="$HOME/.local/share"
+[[ -d "$HOME/.config" ]] && export XDG_CONFIG_HOME="$HOME/.config"
+[[ -d "$HOME/.local/state" ]] && export XDG_STATE_HOME="$HOME/.local/state"
+[[ -d "$HOME/.cache" ]] && export XDG_CACHE_HOME="$HOME/.cache"
+[[ -d "/usr/share/fzf" ]] && export FZF_BASE="/usr/share/fzf"
+[[ -d "/home" ]] && export HOMEDRIVE="/home/"
+[[ -d "$HOME" ]] && export HOMEPATH="jimmy/"
+[[ -f "$HOME/.local/share/Steam/steamapps/common/Lossless Scaling/Lossless.dll" ]] && export LSFG_DLL_PATH="$HOME/.local/share/Steam/steamapps/common/Lossless Scaling/Lossless.dll"
+
+export FOSSILIZE_API_DEFAULT_LOG_LEVEL="3"
+export LANG="en_US.UTF-8"
+export VISUAL="gedit"
+export GIT_DISCOVERY_ACROSS_FILESYSTEM="1"
+export EDITOR="nano"
+export CRYPTOGRAPHY_OPENSSL_NO_LEGACY="true"
+export VDPAU_DRIVER="nvidia"
+export LIBVA_DRIVER_NAME="nvidia"
+export GPG_TTY
+export TERM="alacritty"
+export SDL_GAMECONTROLLERCONFIG="050095ac5e040000e002000003090000,8BitDo Pro 2,a:b0,b:b1,x:b2,y:b3,back:b6,guide:b10,start:b7,leftstick:b8,rightstick:b9,leftshoulder:b4,rightshoulder:b5,dpup:h0.1,dpdown:h0.4,dpleft:h0.8,dpright:h0.2,leftx:a0,lefty:a1,rightx:a3,righty:a4,lefttrigger:a2,righttrigger:a5,platform:Linux,crc:ac95,"
+
+[[ -f "$(which make)" ]] && alias make='make -j$(nproc)'
+[[ -f "$(which yay)" ]] && alias yay-custom='yay --devel --timeupdate --noconfirm --needed --noredownload --norebuild --noremovemake --nomakepkgconf --save --combinedupgrade --sudoloop --answerdiff None --answeredit None --answerclean All'
+[[ -f "$(which speedtest++)" ]] && alias speedtest='speedtest++ --share'
+
+# shellcheck disable=SC2034
+export COMPLETION_WAITING_DOTS="true"
+# shellcheck disable=SC2034
+export CASE_SENSITIVE="false"
+# shellcheck disable=SC2034
+export HYPHEN_INSENSITIVE="false"
+# shellcheck disable=SC2034
+export ENABLE_CORRECTION="true"
+
+if [ -n "${CONTAINER_ID+x}" ]; then
+	echo "Currently running inside container with ID:${CONTAINER_ID}"
+fi
+
+

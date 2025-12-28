@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+source "$HOME/.__neutral__."
+
+[[ ! -r "$HOME/.opam/opam-init/init.sh" ]] || source "$HOME/.opam/opam-init/init.sh" > /dev/null 2> /dev/null
+
+eval "$(pyenv init - bash)"
