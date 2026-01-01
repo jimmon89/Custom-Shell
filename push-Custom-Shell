@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-pushd "$(dirname "$(readlink -f "$(realpath "$0")")")" || exit
+pushd "$(dirname "$(realpath "$0")")" || exit
 git add ./*
 git commit -m "Latest as of $(date)"
 git push
