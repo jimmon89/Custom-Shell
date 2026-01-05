@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 pushd "$(dirname "$(realpath "$0")")" || exit
-git add ./*
-git commit -m "Latest as of $(date)"
+git commit --all --message "Latest as of $(date)"
 git push
 popd || exit
