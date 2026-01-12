@@ -8,21 +8,16 @@ source "$HOME/.__neutral__."
 [[ -d "$ZSH_CACHE_DIR/.zcompdump" ]] && export ZSH_COMPDUMP="$ZSH_CACHE_DIR/.zcompdump"
 [[ ! -r "$HOME/.opam/opam-init/init.zsh" ]] || source "$HOME/.opam/opam-init/init.zsh" > /dev/null 2> /dev/null
 
-# shellcheck disable=SC2034
 export ZSH_THEME="half-life"
-# shellcheck disable=SC2034
 export ZSH_DISABLE_COMPFIX="false"
 
 zstyle ":omz:update" mode auto
 zstyle ":omz:update" frequency 1
 
-# shellcheck disable=SC2034
 plugins=(git colored-man-pages command-not-found cp dotnet extract gh git-extras github gitignore git-lfs git-prompt pip pipenv python ssh-agent systemd systemadmin vscode tailscale)
 autoload -U compinit && compinit
 autoload -U bashcompinit && bashcompinit
 
-# shellcheck disable=SC1094
-# shellcheck disable=SC1091
 [[ -f "$ZSH/oh-my-zsh.sh" ]] && source "$ZSH/oh-my-zsh.sh"
 
 eval "$(pyenv init - zsh)"
