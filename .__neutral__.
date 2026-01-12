@@ -11,6 +11,8 @@
 [[ -d "/usr/share/fzf" ]] && export FZF_BASE="/usr/share/fzf"
 [[ -d "/home" ]] && export HOMEDRIVE="/home"
 [[ -d "$HOMEDRIVE/$(logname)" ]] && HOMEPATH="$(logname)" && export HOMEPATH
+[[ -d "$XDG_DATA_HOME/pnpm" ]] && export PNPM_HOME="$XDG_DATA_HOME/pnpm"
+[[ -d "$PNPM_HOME" ]] && export PATH="$PNPM_HOME:$PATH"
 [[ -f "$HOME/.local/share/Steam/steamapps/common/Lossless Scaling/Lossless.dll" ]] && export LSFG_DLL_PATH="$HOME/.local/share/Steam/steamapps/common/Lossless Scaling/Lossless.dll"
 
 export LANG="en_US.UTF-8"
