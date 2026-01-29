@@ -13,7 +13,12 @@
 [[ -d "$HOMEDRIVE/$(logname)" ]] && HOMEPATH="$(logname)" && export HOMEPATH
 [[ -d "$XDG_DATA_HOME/pnpm" ]] && export PNPM_HOME="$XDG_DATA_HOME/pnpm"
 [[ -d "$PNPM_HOME" ]] && export PATH="$PNPM_HOME:$PATH"
-[[ -f "$HOME/.local/share/Steam/steamapps/common/Lossless Scaling/Lossless.dll" ]] && export LSFG_DLL_PATH="$HOME/.local/share/Steam/steamapps/common/Lossless Scaling/Lossless.dll"
+[[ -f "${XDG_DATA_HOME:-$HOME/.local/share}/Steam/steamapps/common/Lossless Scaling/Lossless.dll" ]] && export LSFG_DLL_PATH="${XDG_DATA_HOME:-$HOME/.local/share}/Steam/steamapps/common/Lossless Scaling/Lossless.dll"
+[[ -d "$HOME/.config/nvm" ]] && export NVM_DIR="$HOME/.config/nvm"
+# shellcheck disable=SC1091
+[ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"  # This loads nvm
+# shellcheck disable=SC1091
+[ -s "$NVM_DIR/bash_completion" ] && source "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 export LANG="en_US.UTF-8"
 export VISUAL="gedit"
@@ -25,9 +30,10 @@ export LIBVA_DRIVER_NAME="nvidia"
 
 export TERM="alacritty"
 
-[[ -f "$(which make)" ]] && alias make='make -j$(nproc)'
+[[ -f "$(which make)" ]] && alias make-fast='make -j$(nproc)'
 [[ -f "$(which yay)" ]] && alias yay-custom='yay --devel --timeupdate --noconfirm --needed --noredownload --norebuild --noremovemake --nomakepkgconf --save --combinedupgrade --sudoloop --answerdiff None --answeredit None --answerclean All'
 [[ -f "$(which speedtest++)" ]] && alias speedtest='speedtest++ --share'
+[[ -f "$(which flatpak)" ]] && alias flatpak-user='flatpak --user'
 
 # shellcheck disable=SC2034
 export COMPLETION_WAITING_DOTS="true"
@@ -41,5 +47,4 @@ export ENABLE_CORRECTION="true"
 if [ -n "${CONTAINER_ID+x}" ]; then
 	echo "Currently running inside container with ID:${CONTAINER_ID}"
 fi
-
 
