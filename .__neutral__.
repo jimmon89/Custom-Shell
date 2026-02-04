@@ -34,7 +34,6 @@ export TERM="alacritty"
 [[ -f "$(which yay)" ]] && alias yay-custom='yay --devel --timeupdate --noconfirm --needed --noredownload --norebuild --noremovemake --nomakepkgconf --save --combinedupgrade --sudoloop --answerdiff None --answeredit None --answerclean All'
 [[ -f "$(which speedtest++)" ]] && alias speedtest='speedtest++ --share'
 [[ -f "$(which flatpak)" ]] && alias flatpak-user='flatpak --user'
-
 # shellcheck disable=SC2034
 export COMPLETION_WAITING_DOTS="true"
 # shellcheck disable=SC2034
