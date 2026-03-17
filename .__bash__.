@@ -2,6 +2,6 @@
 
 source "$HOME/.__neutral__."
 
-[[ ! -r "$HOME/.opam/opam-init/init.sh" ]] || source "$HOME/.opam/opam-init/init.sh" > /dev/null 2> /dev/null
-
-eval "$(pyenv init - bash)"
+[[ -f "$(which pyenv)" ]] && eval "$(pyenv init - bash)"
+[[ -f "$(which pyenv)" ]] && eval "$(pyenv virtualenv-init -)"
+[[ ! -r '/home/jimmy/.opam/opam-init/init.sh' ]] || source '/home/jimmy/.opam/opam-init/init.sh' > /dev/null 2> /dev/null
